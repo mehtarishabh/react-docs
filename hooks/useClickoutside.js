@@ -17,17 +17,17 @@ export default function useClickOutside(
 
     useEffect(() => {
         const listener = (event) => {
-        const target = event.target;
-        if (!target || !target.isConnected) {
-            return;
-        }
+            const target = event.target;
+            if (!target || !target.isConnected) {
+                return;
+            }
 
-        const outside = ref.current && !ref.current.contains(target);
-        if (!outside) {
-            return;
-        }
+            const outside = ref.current && !ref.current.contains(target);
+            if (!outside) {
+                return;
+            }
 
-        latestHandler.current(event);
+            latestHandler.current(event);
         };
 
         window.addEventListener(eventType, listener, eventListenerOptions);
